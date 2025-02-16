@@ -1,9 +1,23 @@
 package edu.uamm.tp; 
  
 public class Calculator { 
-    public int add(int a, int b) { 
-        return a + b; 
-    } 
+
+    // public int add(int a, int b) { 
+    //     return a + b; 
+    // } 
+
+    public int add(int a, int b) {
+        long result = (long) a + b; 
+        if (result > Integer.MAX_VALUE) {
+            throw new ArithmeticException("Dépassement de la capacité d'un entier");
+        }
+
+        if (result < Integer.MIN_VALUE) {
+            throw new ArithmeticException("Dépassement de la capacité d'un entier");
+        }
+        return (int) result;
+    }
+
     public int subtract(int a, int b) { 
         return a - b; 
     } 

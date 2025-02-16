@@ -1,17 +1,55 @@
 package edu.uamm.tp; 
  
+import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
- 
+
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
 public class CalculatorTest { 
  
-    private final Calculator calculator = new Calculator(); 
+    // private final Calculator calculator = new Calculator(); 
  
+    Calculator calculator;  // attributs
+
+    @BeforeEach
+    public void instance(){
+        calculator = new Calculator();
+    }
+
+    @AfterEach
+    public void apres(){
+        calculator = null;
+        System.out.println("La calculatrice est demarrée");
+    }
+
     @Test 
     void testAddition() { 
-        assertEquals(5, calculator.add(2, 3)); 
+        assertEquals(3, calculator.add(1, 2)); 
+        assertEquals(5, calculator.add(2, 3));
+        assertEquals(1, calculator.add(-1, 2)); 
     } 
+
+    @Test
+    void testAdditionLimiteSuperieure() {
+        assertThrows(ArithmeticException.class, () -> calculator.add(Integer.MAX_VALUE, 1));
+    }
+
+    @Test 
+    void testAdditionLimites() {
+        assertThrows(ArithmeticException.class, () -> calculator.add(Integer.MAX_VALUE, 1)); 
+        assertThrows(ArithmeticException.class, () -> calculator.add(Integer.MIN_VALUE, -1)); 
+
+        int result = calculator.add(Integer.MAX_VALUE - 1, 1);
+        assertTrue(result > 0 && result <= Integer.MAX_VALUE, "Le résultat dépasse la limite d'un entier");
+        assertTrue(result < 0 && result >= Integer.MIN_VALUE, "Le résultat depasse la limite d'un entier");
+    }
+ 
  
     @Test 
     void testSoustraction() { 
@@ -50,5 +88,18 @@ public class CalculatorTest {
         assertThrows(IllegalArgumentException.class, () -> calculator.modulo2(5, 0));
         assertThrows(IllegalArgumentException.class, () -> calculator.modulo2(-5, 0));
         assertThrows(IllegalArgumentException.class, () -> calculator.modulo2(10, 0));        
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {1, 2, 3, 4, 5}) // Valeurs testées
+    void testAddition(int valeur) {
+        int resultat = calculator.add(valeur, valeur); // Additionner la valeur à elle-même
+        assertEquals(valeur * 2, resultat, "L'addition doit être correcte");
+    }
+
+    @Test
+    @DisplayName("Test de l'addition de deux nombres positifs")
+    void testAdditionPositifs() {
+        assertEquals(5, calculator.add(2, 3), "2 + 3 doit être égal à 5");
     }
 } 
