@@ -1,6 +1,8 @@
 package edu.uamm.tp;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -65,6 +67,46 @@ public class StringUtilTest {
         String texte = null;
         String resultat = StringUtil.transformerTexte(texte);
         assertNull(resultat, "Le texte null doit retourner null.");
+    }
+
+    // Exercice 1 : Tester des chaînes de caractères
+    @Test
+    void testToUpperCase() {
+        // Vérifie que toUpperCase("java") retourne "JAVA"
+        assertThat(StringUtil.toUpperCase("java"))
+                .isNotNull()
+                .isEqualTo("JAVA");
+    }
+
+    @Test
+    void testToUpperCaseWithNull() {
+        // Vérifie que toUpperCase(null) retourne null
+        assertThat(StringUtil.toUpperCase(null)).isNull();
+    }
+
+    @Test
+    void testToUpperCaseProperties() {
+        // Vérifie que la chaîne retournée commence par "J" et a une longueur de 4
+        assertThat(StringUtil.toUpperCase("java"))
+                .startsWith("J")
+                .hasSize(4);
+    }
+    
+
+    @Test
+    void testToUpperCase1() {
+        assertThat(StringUtil.toUpperCase("java")).isEqualTo("JAVA");
+    }
+
+    @Test
+    void testContainsSubstring() {
+        assertThat("Test").contains("es");
+    }
+
+    @Test
+    void testStringStartAndEnd() {
+        assertThat("Hello").startsWith("He");
+        assertThat("Hello").endsWith("o");
     }
 }
 

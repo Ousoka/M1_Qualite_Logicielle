@@ -13,5 +13,10 @@ public class StringUtil {
         }
         return texte.trim().toUpperCase();  // Retirer les espaces en début et fin, puis mettre en majuscules
     }
+
+    // Exercice 1 : Tester des chaînes de caractères 
+    public static String toUpperCase(String input) { 
+        return (input == null) ? null : input.toUpperCase(); 
+    } 
 }
 

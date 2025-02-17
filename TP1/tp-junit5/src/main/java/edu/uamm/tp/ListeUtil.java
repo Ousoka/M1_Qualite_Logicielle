@@ -29,5 +29,10 @@ public class ListeUtil {
     public static void trierListe(List<String> noms) {
         Collections.sort(noms);
     }
+
+    // Exercice 2 : Tester des collections 
+    public static List<String> filterNames(List<String> names) { 
+        return names.stream().filter(name -> name.startsWith("A")).toList(); 
+    } 
     
 }

@@ -10,6 +10,9 @@ public class Personne {
         this.age = age;
     }
 
+    public String getNom() { return nom; } 
+    public int getAge() { return age; }
+
     // Méthode toString()
     @Override
     public String toString() {
