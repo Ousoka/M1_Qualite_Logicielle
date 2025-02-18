@@ -1,18 +1,18 @@
 package edu.uamm.truth;
-import static org.assertj.core.api.Assertions.assertThat;
+import static com.google.common.truth.Truth.assertThat;
 import org.junit.jupiter.api.Test;
 
 public class PersonneTest {
 
-    // @Test
-    // public void testPersonne() {
-    //     // Création de l'objet Personne
-    //     Personne personne = new Personne("Alice", 25);
 
-    //     // 1. Vérifier que getNom() retourne "Alice"
-    //     assertThat(personne.getNom()).isEqualTo("Alice");
+    @Test
+    public void testGetName(){
 
-    //     // 2. Vérifier que getAge() est supérieur à 20
-    //     assertThat(personne.getAge()).isGreaterThan(20);
-    // }
+        Personne alice = new Personne("Alice", 30);
+
+        assertThat(alice.getNom()).isEqualTo("Alice");
+        assertThat(alice.getAge()).isGreaterThan(20);
+
+    }
+
 }

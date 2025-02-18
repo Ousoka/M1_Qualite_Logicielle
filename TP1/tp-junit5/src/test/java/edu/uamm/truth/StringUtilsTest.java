@@ -1,19 +1,35 @@
 package edu.uamm.truth;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
+import static com.google.common.truth.Truth.assertThat;
 
 public class StringUtilsTest {
 
     @Test
-    void testToUpperCase() {
-        assertThat(StringUtils.toUpperCase("java")).isEqualTo("JAVA");
+    public void testBase(){
+        String mot_a_tester = "java"; 
+        assertThat(StringUtils.toUpperCase(mot_a_tester)).isEqualTo("JAVA");
     }
 
     @Test
-    void testContainsSubstring() {
-        assertThat("Test").contains("es");
+    public void testContenant(){
+        String mot_a_tester = "Test"; 
+        // assertThat(StringUtils.toUpperCase(mot_a_tester)).contains("ES");
+        assertThat(mot_a_tester).contains("es");
+
     }
+
+    @Test
+    public void testCommencantParEtTerminantPar(){
+        String mot_a_tester = "Hello"; 
+        // assertThat(StringUtils.toUpperCase(mot_a_tester)).startsWith("HE");
+        assertThat(mot_a_tester).startsWith("He");
+        // assertThat(StringUtils.toUpperCase(mot_a_tester)).endsWith("O");
+        assertThat(mot_a_tester).endsWith("o");
+
+    }
+
+
 
     @Test
     void testStringStartAndEnd() {

@@ -1,9 +1,10 @@
 package edu.uamm.truth;
 
 public class StringUtils {
-    // Exercice 1 : Tester des chaînes de caractères 
+    // Exeo 1 :
     public static String toUpperCase(String input) { 
         return (input == null) ? null : input.toUpperCase(); 
     } 
+    // operation ternaire si input null est alors ça renvoit null sinon on met en majuscule
 }
 

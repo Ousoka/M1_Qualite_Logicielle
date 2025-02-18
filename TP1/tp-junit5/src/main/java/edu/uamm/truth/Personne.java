@@ -13,10 +13,5 @@ public class Personne {
     public String getNom() { return nom; } 
     public int getAge() { return age; }
 
-    // Méthode toString()
-    @Override
-    public String toString() {
-        return "Nom: " + nom + ", Age: " + age;
-    }
 }
 
