@@ -1,11 +1,13 @@
 package edu.uamm.tp; 
  
+// Exo 1 :
 public class Calculator { 
 
-    // public int add(int a, int b) { 
-    //     return a + b; 
-    // } 
+    public int add1(int a, int b) { 
+        return a + b; 
+    } 
 
+    // Exo 2 :
     public int add(int a, int b) {
         long result = (long) a + b; 
         if (result > Integer.MAX_VALUE) {
@@ -31,13 +33,13 @@ public class Calculator {
         return (double) a / b; 
     } 
 
-    // 1. Ajouter une méthode modulo(int a, int b) à Calculator. 
+    // 1. modulo 
     public int modulo(int a, int b) {
         return a % b;
     }
     
 
-    // 3. Gérer le cas où b == 0 avec la methode modulo et tester ce cas
+    // 3. modulo avec b=0
     public int modulo2(int a, int b) {
         if (b == 0) {
             throw new IllegalArgumentException("Division par zéro non permise");

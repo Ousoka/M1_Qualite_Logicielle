@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 public class PersonneTest {
 
+    // Exo 9 :
     @Test
     @DisplayName("Test de la méthode toString() pour une personne")
     void testToString() {

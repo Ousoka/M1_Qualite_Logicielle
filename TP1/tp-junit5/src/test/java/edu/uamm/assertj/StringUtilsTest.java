@@ -4,27 +4,29 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 
 public class StringUtilsTest {
-    // Exercice 1 : Tester des chaînes de caractères
+    // Ex0 1 : 
+
     @Test
-    void testToUpperCase() {
-        // Vérifie que toUpperCase("java") retourne "JAVA"
-        assertThat(StringUtils.toUpperCase("java"))
-                .isNotNull()
-                .isEqualTo("JAVA");
+    // java en JAVA 
+    public void testDeBase(){
+        String mot_a_tester = "java";
+        assertThat(StringUtils.toUpperCase(mot_a_tester))
+        .isNotNull().isEqualTo("JAVA"); 
     }
 
     @Test
-    void testToUpperCaseWithNull() {
-        // Vérifie que toUpperCase(null) retourne null
-        assertThat(StringUtils.toUpperCase(null)).isNull();
+    // test avec null
+    public void testAvecNull(){
+        String mot_a_tester = null;
+        assertThat(StringUtils.toUpperCase(mot_a_tester)).isNull(); 
     }
 
     @Test
-    void testToUpperCaseProperties() {
-        // Vérifie que la chaîne retournée commence par "J" et a une longueur de 4
-        assertThat(StringUtils.toUpperCase("java"))
-                .startsWith("J")
-                .hasSize(4);
+    // test avec un mot commencant avec J et de long 4
+    public void testAvecJ4(){
+        String mot_a_tester = "Jok4";
+        assertThat(StringUtils.toUpperCase(mot_a_tester))
+        .startsWith("J").hasSize(4); 
     }
     
 }

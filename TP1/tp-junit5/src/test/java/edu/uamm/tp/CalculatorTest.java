@@ -16,17 +16,26 @@ public class CalculatorTest {
  
     Calculator calculator;  // attributs
 
+    // Exo 5 :
     @BeforeEach
     public void instance(){
         calculator = new Calculator();
     }
 
+    // Exo 6 :
     @AfterEach
     public void apres(){
         calculator = null;
-        System.out.println("La calculatrice est redémarrée");
+        System.out.println("La calculatrice est nettoyée");
     }
 
+    // Exo 1 :
+    @Test 
+    void testAdd() { 
+        assertEquals(5, calculator.add1(2, 3)); 
+    } 
+
+    // Exo 2 :
     @Test 
     void testAddition() { 
         assertEquals(3, calculator.add(1, 2)); 
@@ -34,6 +43,7 @@ public class CalculatorTest {
         assertEquals(1, calculator.add(-1, 2)); 
     } 
 
+    // Exo 3 :
     @Test
     void testAdditionLimiteSuperieure() {
         assertThrows(ArithmeticException.class, () -> calculator.add(Integer.MAX_VALUE, 1));
@@ -89,6 +99,7 @@ public class CalculatorTest {
         assertThrows(IllegalArgumentException.class, () -> calculator.modulo2(10, 0));        
     }
 
+    // Exo 7 :
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 3, 4, 5}) // Valeurs testées
     void testAddition(int valeur) {
@@ -96,6 +107,7 @@ public class CalculatorTest {
         assertEquals(valeur * 2, resultat, "L'addition doit être correcte");
     }
 
+    // Exo 8 :
     @Test
     @DisplayName("Test de l'addition de deux nombres positifs")
     void testAdditionPositifs() {

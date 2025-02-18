@@ -9,7 +9,7 @@ public class Configuration {
 
     // Constructeur privé pour empêcher la création d'instances supplémentaires
     private Configuration() {
-        // Initialisation de la configuration (par exemple, chargement des paramètres)
+        // Initialisation de la configuration
     }
 
     // Méthode pour récupérer l'instance unique de la classe

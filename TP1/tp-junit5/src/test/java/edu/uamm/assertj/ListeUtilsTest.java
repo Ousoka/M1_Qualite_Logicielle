@@ -13,18 +13,21 @@ import org.junit.jupiter.api.Test;
 
 public class ListeUtilsTest {
 
+
     @Test
-    void testFilterNames() {
-        List<String> filteredNames = ListeUtils.filterNames(List.of("Alice", "Bob", "Anna"));
-        
-        // Vérifie que "Alice" et "Anna" sont dans la liste
-        assertThat(filteredNames).contains("Alice", "Anna");
-        
-        // Vérifie que "Bob" n'est pas dans la liste
-        assertThat(filteredNames).doesNotContain("Bob");
-        
-        // Vérifie que la liste a exactement 2 éléments
-        assertThat(filteredNames).hasSize(2);
+    public void testContenance(){
+
+        // contient Alice et Anna
+        assertThat(ListeUtils.filterNames(List.of("Alice", "Bob", "Anna")))
+        .contains("Alice","Anna"); 
+        // ne contient pas Bob
+        assertThat(ListeUtils.filterNames(List.of("Alice", "Bob", "Anna")))
+        .doesNotContain("Bob");
+        // contient exactement 2 element
+        assertThat(ListeUtils.filterNames(List.of("Alice", "Bob", "Anna")))
+        .hasSize(2);
+
     }
+
 }
 

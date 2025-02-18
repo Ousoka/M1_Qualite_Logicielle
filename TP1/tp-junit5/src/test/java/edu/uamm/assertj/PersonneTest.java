@@ -6,22 +6,23 @@ import org.junit.jupiter.api.Test;
 
 public class PersonneTest {
 
-    @Test
-    void testPersonAttributes() {
-        Personne person = new Personne("Alice", 30);
-        
-        // Vérifie que name = "Alice" et age = 30
-        assertThat(person.getNom()).isEqualTo("Alice");
-        assertThat(person.getAge()).isEqualTo(30);
+    @Test 
+    // verif de base
+    public void testBase(){
+        Personne alice = new Personne("Alice", 30); 
+
+        assertThat(alice.getNom()).isEqualTo("Alice"); 
+        assertThat(alice.getAge()).isEqualTo(30); 
     }
 
-    @Test
-    void testPersonEquality() {
-        Personne person1 = new Personne("Alice", 30);
-        Personne person2 = new Personne("Alice", 30);
-        
-        // Utilise usingRecursiveComparison pour comparer deux objets Person identiques
-        assertThat(person1).usingRecursiveComparison().isEqualTo(person2);
+    @Test 
+    // comparer 2 personnes
+    public void test2PersonnesIdentitques(){
+        Personne alice = new Personne("Alice", 30); 
+        Personne ousmaneka = new Personne("Alice", 30); 
+
+        assertThat(alice).usingRecursiveComparison()
+        .isEqualTo(ousmaneka);
     }
 
 }
