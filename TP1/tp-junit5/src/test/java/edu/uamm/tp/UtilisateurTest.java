@@ -37,6 +37,7 @@ public class UtilisateurTest {
             () -> assertFalse(Utilisateur.estEmailValide("user@.com"), "Nom de domaine incorrect"),
             () -> assertFalse(Utilisateur.estEmailValide("user@domain..com"), "Double point dans le domaine"),
             () -> assertFalse(Utilisateur.estEmailValide(null), "Email null"),
+            // () -> assertFalse(Utilisateur.estEmailValide("user@domainuamcom"),  "Email bizare"),
             () -> assertFalse(Utilisateur.estEmailValide(""), "Email vide"),
             () -> assertFalse(Utilisateur.estEmailValide("user@domain.c"), "Extension trop courte")
         );
@@ -116,5 +117,22 @@ public class UtilisateurTest {
         // Vérifier que l'identifiant a bien 10 caractères
         assertEquals(10, identifiant.length(), "L'identifiant généré doit avoir 10 caractères.");
     }
+
+
+
+
+
+
+        // Exo 14 :
+        @Test
+        @DisplayName("Vérification user est actif")
+        void testUtilisateurActif1() {
+
+            Utilisateur utilisateur = new Utilisateur();
+
+            utilisateur.setActif(true);
+        
+            assertTrue(utilisateur.estActif(), "User est actif");
+        }
 }
 

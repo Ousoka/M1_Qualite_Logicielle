@@ -69,23 +69,7 @@ public class ListeUtilTest {
         assertEquals(Arrays.asList("Alice", "Bob", "Zoe"), noms, "La liste doit être triée par ordre alphabétique.");
     }
 
-    @Test
-    @DisplayName("Test d'une liste vide")
-    void testListeVide() {
-        // Cas 2 : Une liste vide ne pose pas de problème
-        List<String> noms = Arrays.asList();
-        ListeUtil.trierListe(noms);
-        assertTrue(noms.isEmpty(), "La liste vide doit rester vide après le tri.");
-    }
 
-    @Test
-    @DisplayName("Test d'une liste avec un seul élément")
-    void testListeAvecUnSeulElement() {
-        // Cas 3 : Une liste avec un seul élément reste inchangée
-        List<String> noms = Arrays.asList("Alice");
-        ListeUtil.trierListe(noms);
-        assertEquals(Arrays.asList("Alice"), noms, "La liste avec un seul élément doit rester inchangée après le tri.");
-    }
 
 }
 

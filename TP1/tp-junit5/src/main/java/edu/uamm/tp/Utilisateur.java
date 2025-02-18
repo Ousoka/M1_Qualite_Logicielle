@@ -1,6 +1,6 @@
 package edu.uamm.tp;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.regex.Pattern;
@@ -12,13 +12,14 @@ public class Utilisateur {
 
     private boolean actif;
 
-    // Constructeur
     public Utilisateur() {
-        // Par défaut, un utilisateur est actif
-        this.actif = true;
+        this.actif = false;
     }
 
-    // Méthode pour vérifier si l'utilisateur est actif
+    public void setActif(boolean actif) {
+        this.actif = actif;
+    }
+
     public boolean estActif() {
         return actif;
     }
@@ -28,7 +29,7 @@ public class Utilisateur {
     // Exo 11 : 
 
     // Expression régulière pour valider un email
-    private static final String EMAIL_REGEX = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$";
+    private static final String EMAIL_REGEX = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+\\.[A-Za-z]{2,6}$";
     private static final Pattern PATTERN = Pattern.compile(EMAIL_REGEX);
 
     // validation d'email
@@ -43,10 +44,38 @@ public class Utilisateur {
 
     // Exo 12 :
 
-    // Méthode qui retourne une liste de noms d'utilisateurs
+    // // Méthode qui retourne une liste de noms d'utilisateurs
+
     public static List<String> obtenirNomsUtilisateurs() {
-        return Arrays.asList("Alice", "Bob", "Charlie", "David");
+        List<String> noms = new ArrayList<>();
+        noms.add("Alice");
+        noms.add("Bob");
+        noms.add("Charlie");
+        noms.add("David");
+        return noms;
     }
+
+    // obtenirNomsUtilisateurs en utilisant la classe personne
+
+    public static List<String> obtenirNomsUtilisateurs1() {
+        Personne[] personnes = {
+                new Personne("Alice", 20),
+                new Personne("Bob", 25),
+                new Personne("Charlie", 30),
+                new Personne("David", 35)
+        };
+
+        List<String> noms = new ArrayList<>();
+        for (Personne personne : personnes) {
+            noms.add(personne.getNom());
+        }
+        return noms;
+    }
+
+
+    // public static List<String> obtenirNomsUtilisateurs() {
+    //     return Arrays.asList("Alice", "Bob", "Charlie", "David");
+    // }
 
     //==============================================================================================
 
