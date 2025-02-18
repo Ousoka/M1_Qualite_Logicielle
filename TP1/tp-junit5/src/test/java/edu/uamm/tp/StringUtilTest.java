@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 
 public class StringUtilTest {
 
+    // Exo 13 :
+
     @Test
     @DisplayName("Test de la concaténation de deux chaînes")
     void testConcatener() {
@@ -24,6 +26,10 @@ public class StringUtilTest {
         assertEquals("", StringUtil.concatener("", ""), "La concaténation de deux chaînes vides doit retourner une chaîne vide");
     }
 
+    //==============================================================================================
+
+    // Exo 17 :
+    
     @Test
     @DisplayName("Test pour vérifier la transformation en majuscules et suppression des espaces")
     void testTransformerTexte() {
@@ -69,7 +75,9 @@ public class StringUtilTest {
         assertNull(resultat, "Le texte null doit retourner null.");
     }
 
-    // Exercice 1 : Tester des chaînes de caractères
+    //==============================================================================================
+
+    // Ex0 1 : Tester des chaînes de caractères
     @Test
     void testToUpperCase() {
         // Vérifie que toUpperCase("java") retourne "JAVA"

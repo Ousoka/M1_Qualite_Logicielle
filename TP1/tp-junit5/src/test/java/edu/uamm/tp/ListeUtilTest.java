@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -12,6 +11,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class ListeUtilTest {
+
+    // Exo 10 :
 
     @Test
     @DisplayName("Test de l'ajout d'un élément à une liste")
@@ -29,6 +30,10 @@ public class ListeUtilTest {
             () -> assertEquals("Bonjour", liste.get(0), "Le premier élément doit être 'Bonjour'")
         );
     }
+
+    //==============================================================================================
+
+    // Exo 15 :
 
     @Test
     @DisplayName("Test lorsque le produit est présent dans la liste")
@@ -50,6 +55,10 @@ public class ListeUtilTest {
         ListeUtil gestionProduits = new ListeUtil(Arrays.asList("Pomme", "Banane", "Orange"));
         assertFalse(gestionProduits.rechercherProduit(""), "La recherche avec une chaîne vide doit retourner false");
     }
+
+    //==============================================================================================
+    
+    // Exo 20 :
 
     @Test
     @DisplayName("Test du tri de la liste de noms")
@@ -78,36 +87,5 @@ public class ListeUtilTest {
         assertEquals(Arrays.asList("Alice"), noms, "La liste avec un seul élément doit rester inchangée après le tri.");
     }
 
-    @Test
-    void testFilterNames() {
-        List<String> filteredNames = ListeUtil.filterNames(List.of("Alice", "Bob", "Anna"));
-        
-        // Vérifie que "Alice" et "Anna" sont dans la liste
-        assertThat(filteredNames).contains("Alice", "Anna");
-        
-        // Vérifie que "Bob" n'est pas dans la liste
-        assertThat(filteredNames).doesNotContain("Bob");
-        
-        // Vérifie que la liste a exactement 2 éléments
-        assertThat(filteredNames).hasSize(2);
-    }
-
-    @Test
-    public void testFilterNames1() {
-        // Données de test
-        List<String> names = List.of("Alice", "Anna", "Bob", "Charlie");
-
-        // Appel de la méthode
-        List<String> result = ListeUtil.filterNames(names);
-
-        // 1. Vérifier que la liste retournée contient "Alice" et "Anna"
-        assertThat(result).containsExactly("Alice", "Anna");
-
-        // 2. Vérifier qu'elle ne contient pas "Bob"
-        assertThat(result).doesNotContain("Bob");
-
-        // 3. Vérifier qu'elle a exactement 2 éléments
-        assertThat(result).hasSize(2);
-    }
 }
 

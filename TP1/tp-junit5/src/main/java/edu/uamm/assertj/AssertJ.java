@@ -1,4 +1,4 @@
-package edu.uamm.tp;
+package edu.uamm.assertj;
 
 public class AssertJ {
     

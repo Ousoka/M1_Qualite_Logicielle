@@ -1,11 +1,13 @@
 package edu.uamm.tp;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class ConfigurationTest {
 
+    // Exo 19 :
+    
     @Test
     @DisplayName("Test pour vérifier que Configuration.getInstance() retourne toujours la même instance")
     void testSingleton() {

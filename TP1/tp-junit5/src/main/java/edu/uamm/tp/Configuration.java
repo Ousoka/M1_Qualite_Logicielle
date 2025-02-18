@@ -2,6 +2,8 @@ package edu.uamm.tp;
 
 public class Configuration {
 
+    // Exo 19 :
+    
     // Instance unique de la classe
     private static Configuration instance;
 
@@ -16,5 +18,5 @@ public class Configuration {
             instance = new Configuration();
         }
         return instance;
-    }
+    } 
 }

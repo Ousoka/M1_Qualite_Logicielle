@@ -1,4 +1,4 @@
-package edu.uamm.tp;
+package edu.uamm.truth;
 
 import org.junit.jupiter.api.Test;
 

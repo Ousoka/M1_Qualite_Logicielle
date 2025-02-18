@@ -1,12 +1,21 @@
 package edu.uamm.tp;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import java.util.List;
 
 public class UtilisateurTest {
 
+    //==============================================================================================
+
+    // Exo 11 :
     @Test
     @DisplayName("Test avec des emails valides")
     void testEmailsValides() {
@@ -33,6 +42,10 @@ public class UtilisateurTest {
         );
     }
 
+    //==============================================================================================
+
+    // Exo 12 :
+
     @Test
     @DisplayName("Vérification que la liste n'est pas null")
     void testListeNonNulle() {
@@ -47,7 +60,9 @@ public class UtilisateurTest {
         assertTrue(noms.contains("Alice"), "La liste doit contenir 'Alice'");
     }
 
+    //==============================================================================================
 
+    // Exo 14 :
     @Test
     @DisplayName("Vérification que l'utilisateur est actif par défaut")
     void testUtilisateurActif() {
@@ -57,6 +72,10 @@ public class UtilisateurTest {
         // Vérification que l'utilisateur est actif
         assertTrue(utilisateur.estActif(), "L'utilisateur nouvellement créé doit être actif");
     }
+
+    //==============================================================================================
+
+    // Exo 16 :
 
     @Test
     @DisplayName("Test pour vérifier que l'exception est levée si l'ID est null")
@@ -78,7 +97,11 @@ public class UtilisateurTest {
         assertThrows(IllegalArgumentException.class, () -> {
             utilisateur.supprimerUtilisateur("");
         }, "L'ID ne peut pas être null ou vide.");
-    }
+    } 
+
+    //==============================================================================================
+
+    // Exo 18 :
 
     @Test
     @DisplayName("Test pour vérifier que l'identifiant généré n'est jamais null et fait 10 caractères")
