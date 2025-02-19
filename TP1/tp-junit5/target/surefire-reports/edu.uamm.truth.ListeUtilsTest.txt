@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: edu.uamm.assertj.ListeUtilsTest
+Test set: edu.uamm.truth.ListeUtilsTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.133 s - in edu.uamm.assertj.ListeUtilsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 s - in edu.uamm.truth.ListeUtilsTest

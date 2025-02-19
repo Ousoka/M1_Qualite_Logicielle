@@ -1,10 +1,12 @@
 package edu.uamm.truth;
 
 import org.junit.jupiter.api.Test;
+
 import static com.google.common.truth.Truth.assertThat;
 
 public class StringUtilsTest {
 
+    // Exo 1 :
     @Test
     public void testBase(){
         String mot_a_tester = "java"; 

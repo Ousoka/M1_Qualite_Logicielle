@@ -1,29 +1,34 @@
 package edu.uamm.truth;
+import java.util.ArrayList;
 import java.util.List;
 
-import static com.google.common.truth.Truth.*;
 import org.junit.jupiter.api.Test;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class ListeUtilsTest {
 
-    // to be reviewed
-    
-    // @Test
-    // public void testFilterNames() {
-    //     // Données de test
-    //     List<String> names = List.of("Alice", "Anna", "Bob", "Charlie");
+    // Exo 2 :
+    @Test 
+    public void testContenance(){
 
-    //     // Appel de la méthode
-    //     List<String> result = ListeUtils.filterNames(names);
+        Personne[] personnes = {
+            new Personne("Alice", 30),
+            new Personne("Anna", 25),
+            new Personne("Ousmane", 20)
+        };
 
-    //     // 1. Vérifier que la liste retournée contient "Alice" et "Anna"
-    //     assertThat(result).containsExactly("Alice", "Anna");
+        List<String> noms = new ArrayList<>();
 
-    //     // 2. Vérifier qu'elle ne contient pas "Bob"
-    //     assertThat(result).doesNotContain("Bob");
+        for (Personne personne : personnes){
+            noms.add(personne.getNom());
+        }
 
-    //     // 3. Vérifier qu'elle a exactement 2 éléments
-    //     assertThat(result).hasSize(2);
-    // }
+        List<String> noms_a_tester = ListeUtils.filterNames(noms);
+
+        assertThat(noms_a_tester).contains("Alice");
+        assertThat(noms_a_tester).doesNotContain("Bob");
+        assertThat(noms_a_tester).hasSize(2);
+    }
 }
 

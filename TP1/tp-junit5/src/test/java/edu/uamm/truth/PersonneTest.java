@@ -1,10 +1,11 @@
 package edu.uamm.truth;
-import static com.google.common.truth.Truth.assertThat;
 import org.junit.jupiter.api.Test;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class PersonneTest {
 
-
+    // Exo 3 :
     @Test
     public void testGetName(){
 

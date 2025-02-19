@@ -1,7 +1,6 @@
 edu\uamm\tp\ConfigurationTest.class
 edu\uamm\tp\MathUtilsTest.class
 edu\uamm\tp\CalculatorTest.class
-edu\uamm\tp\TruthTest.class
 edu\uamm\tp\StudentGradesTest.class
 edu\uamm\tp\ListeUtilTest.class
 edu\uamm\tp\StringUtilTest.class
