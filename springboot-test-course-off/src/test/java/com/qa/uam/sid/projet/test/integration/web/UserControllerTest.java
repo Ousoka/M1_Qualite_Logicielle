@@ -1,23 +1,30 @@
 package com.qa.uam.sid.projet.test.integration.web;
 
-import com.qa.uam.sid.projet.test.integration.model.User;
-import com.qa.uam.sid.projet.test.integration.service.impl.UserServiceImpl;
+import java.util.List;
+import java.util.Optional;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.RequestBuilder;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-
-import java.util.List;
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import org.springframework.http.MediaType; 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.qa.uam.sid.projet.test.integration.model.User;
+import com.qa.uam.sid.projet.test.integration.service.impl.UserServiceImpl;
 
 //@SpringBootTest
 @WebMvcTest(UserController.class)
@@ -28,7 +35,7 @@ class UserControllerTest {
 
     @MockitoBean
     private UserServiceImpl service;
-
+ 
     User user;
 
     List<User> users;
@@ -51,9 +58,62 @@ class UserControllerTest {
                 .perform(get("/test/integrations/v1/users/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.nom").value("ngom"));
-
-
     }
 
+    @Test
+    void shouldReturnAllUsersViaController() throws Exception {
+        when(service.getAllUsers()).thenReturn(users);
 
+        mockMvc
+                .perform(get("/test/integrations/v1/users"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].nom").value("ngom"));
+    }
+
+    @Test
+    void shouldDeleteUserViaController() throws Exception {
+        doNothing().when(service).deletUser(1L);
+
+        mockMvc.perform(delete("/test/integrations/v1/users/1"))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    void shouldEditUserViaController() throws Exception {
+
+        doNothing().when(service).modifierUser(user);
+
+        mockMvc.perform(put("/test/integrations/v1/users")
+                .contentType("application/json")
+                .content("""
+                        {
+                            "id": 1,
+                            "nom": "ngom",
+                            "prenom": "bass",
+                            "age": 69,
+                            "active": true
+                        }
+                    """))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    void shouldCreateUserViaController() throws Exception {
+
+        doNothing().when(service).createUser(user);
+
+
+        mockMvc.perform(post("/test/integrations/v1/users")
+                .contentType("application/json")
+                .content("""
+                        {
+                            "id": 1,
+                            "nom": "ngom",
+                            "prenom": "bass",
+                            "age": 69,
+                            "active": true
+                        }
+                    """))
+                .andExpect(status().isOk());
+    }
 }

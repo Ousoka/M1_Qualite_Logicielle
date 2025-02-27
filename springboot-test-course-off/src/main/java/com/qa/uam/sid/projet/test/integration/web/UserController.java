@@ -34,7 +34,7 @@ public class UserController {
 
     @GetMapping("/users/{id}")
     public Optional<User> findOne(@PathVariable Long id){
-       return this.userService.findUserById(id);
+       return this.userService.findUserById(id); 
     }
 
     // user?id={ret} => requestParam
